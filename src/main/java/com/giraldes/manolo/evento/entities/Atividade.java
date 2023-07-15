@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import javax.annotation.processing.Generated;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -73,5 +74,18 @@ public class Atividade {
     }
 
     public Atividade() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Atividade atividade = (Atividade) o;
+        return Objects.equals(id, atividade.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
